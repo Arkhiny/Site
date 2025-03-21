@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getPasswordStrength(password) {
         let strength = 0;
+        let aproved = false;
 
-        if (password.length >= 8) strength++; // Length
+        if (password.length >= 8) aproved = true; // Length
         if (/[A-Z]/.test(password)) strength++; // Uppercase letter
         if (/[a-z]/.test(password)) strength++; // Lowercase letter
         if (/[0-9]/.test(password)) strength++; // Number
@@ -20,11 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add a fifth level for very strong passwords
         if (password.length >= 12) strength++; // Additional length for very strong
 
-        return Math.min(strength, 5); // Ensure strength does not exceed 5
+        return aproved ? Math.min(strength, 5) : Math.min(strength, 2); // Ensure strength does not exceed 5 if approved, or 2 if not
     }
 
     function updateStrengthMeter(strength) {
-        const colors = ['#ff4d4d', '#ffcc00', '#66cc00', '#00cc00', '#00cc00', '#00cc00']; // Red, Yellow, Light Green, Green, Full Green
+        const colors = ['#ff4d4d', '#ff4d4d', '#ff9900', '#00cc00', '#00b300','#00b300']; // Red, Orange, Light Green, Green, More Vibrant Green
         const strengthBar = document.createElement('span');
 
         // Clear previous strength bar
