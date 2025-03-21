@@ -10,14 +10,15 @@
 <body>
     <div class="container">
         <div class="card">
-            <div class="title">Login</div>
+            <div class="title">Criar conta</div>
             <form>
                 <input type="email" placeholder="Email" required>
                 <div class="password-container">
                     <input type="password" id="password" placeholder="Senha" required>
                     <i class="fas fa-eye toggle-password" id="togglePassword"></i>
                 </div>
-                <a href="#" class="forgot-password">Esqueceu a Senha?</a>
+                <div id="password-strength" class="password-strength"></div> 
+                <a href="#" class="forgot-password"></a>
                 <button type="submit" class="login">Entrar</button>
             </form>
         </div>
